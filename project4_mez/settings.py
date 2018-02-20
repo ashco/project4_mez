@@ -188,8 +188,7 @@ CACHE_MIDDLEWARE_KEY_PREFIX = PROJECT_APP
 
 
 
-# --------------------------- HEROKU DEPLOYMENT REQUIREMENT ---------------------------
-
+# --------------------------- HEROKU DEPLOYMENT STATIC FILE REQUIREMENT ---------------------------
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
@@ -199,7 +198,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
@@ -209,16 +208,10 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 
-
-
-
-
-
-
-
-
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
